@@ -76,6 +76,51 @@ public class PhoneDao {
 		///////////////////////////////////////////////////////////////////////////
 		///////////////////////////////////////////////////////////////////////////
 		
+		public PhoneVo getPerson(int Id) {
+			getConnection();
+			
+			PhoneVo pv = null;
+			
+			try {
+			    // 3. SQL문 준비 / 바인딩 / 실행
+			    String query = " select			person_id, ";
+			    			query +=  "			name,	"	;	
+			    			query +=  "			hp,	";
+			    			query +=  "			company ";
+			    			query +=  "	from	person	";
+			    			query +=  "	where	person_id = ? ";
+			    			
+			    pstmt = conn.prepareStatement(query);
+			    pstmt.setInt(1, Id);
+			    
+			    rs = pstmt.executeQuery();
+			    
+			    while(rs.next()) {
+			    	
+			    	int personId = rs.getInt(1);
+			    	String name = rs.getString(2);
+			    	String hp = rs.getString(3);
+			    	String company = rs.getString(4);
+			    	
+			    	 pv = new PhoneVo(personId, name, hp, company);
+			    }
+			    // 4.결과처리
+			    			
+			    			
+			} catch (SQLException e) {
+			    System.out.println("error:" + e);
+			} 
+			
+			close();
+			
+			
+			return pv;
+		}
+		
+		
+		
+		
+		
 		// 리스트 가져오는 메서드	
 		public List<PhoneVo> getPhList() {
 			getConnection();

@@ -16,7 +16,7 @@
 	
 	<br>
 	
-		<form action= "insert.jsp" method="post">
+		<form action= "insert.jsp" method="get">
 			
 				
 				이름(name):  <input type="text" name="name" > <br>

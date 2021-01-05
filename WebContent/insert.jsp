@@ -23,6 +23,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<% response.sendRedirect("list.jsp"); %>
+		<% response.sendRedirect("./list.jsp"); %>
 </body>
 </html>

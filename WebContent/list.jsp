@@ -32,7 +32,10 @@ List<PhoneVo> list = pd.getPhList();
 	
 			<tr>
 				<td>이름(name)</td>
-				<td><%=list.get(i).name %></td>
+				<td>
+				<%=list.get(i).name %>
+				<%="["+list.get(i).personId+"]"%>
+				</td>
 			</tr>
 			<tr>
 				<td>핸드폰(hp)</td>
@@ -42,7 +45,10 @@ List<PhoneVo> list = pd.getPhList();
 				<td>회사(company)</td>
 				<td><%=list.get(i).company %></td>
 			</tr>
-	
+			<tr>
+				<td><a href="delete.jsp?id=<%=list.get(i).personId %>">삭제</a></td>
+				<td><a href="updateForm.jsp?id=<%=list.get(i).personId %>">수정</a></td>
+			</tr>
 	</table>
 	
 	<%} %>
@@ -50,7 +56,8 @@ List<PhoneVo> list = pd.getPhList();
 	<br>
 	
 	<a href="./writeForm.jsp">추가번호 등록</a>
-	
+	<br><br>
+	<a href="./searchForm.jsp">[검색]</a>
 	
 </body>
 </html>
